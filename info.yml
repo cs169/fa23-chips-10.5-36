@@ -1,0 +1,24 @@
+project:
+  name: 'CS169-fa23-36'
+  owner: 'fa23'
+  teamId: '36'
+  identities: {}
+  notifications:
+    email: 'nbashkircalnetid@berkeley.edu'
+  members:
+    member1:
+      name: 'Nikolai  '
+      surname: 'Bashkirov' 
+      githubUsername: 'BashkirovN'
+    member2:
+      name: 'Christina'
+      surname: 'Huynh' 
+      githubUsername: 'christinaH'
+    member3:
+      name: 'Maanuj'
+      surname: 'Vora' 
+      githubUsername: 'Maanuj-Vora'
+    member4:
+      name: 'Ryan'
+      surname: 'Ma' 
+      githubUsername: 'ryan'
