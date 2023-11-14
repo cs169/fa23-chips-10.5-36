@@ -15,6 +15,8 @@ political events in their area as well as aggregate, share and view news items i
 
 [![Bluejay Dashboard](https://img.shields.io/badge/Bluejay-Dashboard_36-blue.svg)](http://dashboard.bluejay.governify.io/dashboard/script/dashboardLoader.js?dashboardURL=https://reporter.bluejay.governify.io/api/v4/dashboards/tpa-CS169-2023-GH-cs169_fa23-chips-10.5-36/main)
 
+To view your Bluejay dashboard, go to your README.md file and click the Bluejay badge. For “Email or username” write user and for “Password” write bluejay
+
 ### Getting Setup Locally
 
 Follow the [Getting Started Guide](./docs/01-getting-started.md) to get your localhost environment setup.
