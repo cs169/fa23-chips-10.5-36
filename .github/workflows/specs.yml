@@ -7,23 +7,21 @@ on:
 jobs:
   # TODO: Environment variables?
   build:
+    env: 
+      RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
     runs-on: '${{ matrix.os }}'
     strategy:
       matrix:
         os:
           - ubuntu-22.04
     steps:
-      - shell: bash
-        env:
-          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-        run: touch master.key && echo "$RAILS_MASTER_KEY" > master.key
       - name: Cache multiple paths
         uses: actions/cache@v2
         with:
           path: |-
             node_modules
             vendor/bundle
-          key: '${{ runner.os }}-${{ hashFiles(''RAILS_MASTER_KEY'') }}'
+          key: '${{ runner.os }}-${{ hashFiles(''TODO'') }}'
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
         with:
