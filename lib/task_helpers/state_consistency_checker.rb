@@ -5,7 +5,7 @@ class StateConsistencyChecker
     # NOTE: make sure to run `bundle exec rails states:counties_topojson` first.
     state_request = StateShapefileRequest.new state
     geojson = nil
-    File.open(Rails.root.join(state_request.geojson_filename), 'r:UTF-8') do |f|
+    Rails.root.join(state_request.geojson_filename).open('r:UTF-8') do |f|
       geojson = JSON.parse(
         f.read
       )
@@ -17,7 +17,7 @@ class StateConsistencyChecker
     # NOTE: make sure to run `bundle exec rails states:fips` first.
     fips_filename = "#{StateFipsTaskHelper::FIPS_DIR}/#{state[:symbol].downcase}.json"
     fips_data = {}
-    File.open(Rails.root.join(fips_filename), 'r:UTF-8') do |f|
+    Rails.root.join(fips_filename).open('r:UTF-8') do |f|
       fips_data = JSON.parse(
         f.read,
         object_class: County
@@ -36,8 +36,8 @@ class StateConsistencyChecker
   end
 
   def self.log_check(state, geojson, county_by_fips_code)
-    Rails.logger.info "#{state[:symbol]} has #{geojson['features'].length} geojson entries"\
-                      " and #{county_by_fips_code.length} FIPS entries."
+    Rails.logger.info "#{state[:symbol]} has #{geojson['features'].length} geojson entries " \
+                      "and #{county_by_fips_code.length} FIPS entries."
     raise ArgumentError, 'Geojson and FIPS dataset counties mismatch' \
         if geojson['features'].length != county_by_fips_code.length
   end
