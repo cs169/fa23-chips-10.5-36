@@ -17,6 +17,8 @@ class Representative < ApplicationRecord
         end
       end
 
+      next if Representative.find_by(name: official.name, title: title_temp).present?
+
       rep = Representative.create!({ name: official.name, ocdid: ocdid_temp,
           title: title_temp })
       reps.push(rep)
