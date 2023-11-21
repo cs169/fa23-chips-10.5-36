@@ -1,0 +1,28 @@
+.container
+  .row
+    .col-md-8.offset-md-2
+      %h1= @representative.name
+      %h3= @representative.title
+
+    .col-md-8.offset-md-2
+      .profile-image
+        %h2 Representative Photo
+        - if @representative.photo_url.present?
+          %img{ src: @representative.photo_url, alt: 'Representative Photo', class: 'img-fluid rounded' }
+        - else
+          %p No photo available
+
+    .col-md-8.offset-md-2
+      .profile-details
+        %h2 Representative Details
+        %ul.list-group
+          %li.list-group-item
+            %strong Contact Address:
+            = @representative.contact_address
+          %li.list-group-item
+            %strong Political Party:
+            = @representative.political_party
+          %li.list-group-item
+            %strong OCD ID:
+            = @representative.ocdid
+
