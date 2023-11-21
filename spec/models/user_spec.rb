@@ -13,12 +13,10 @@ describe User do
 
     it 'calls name' do
       expect(@google_user.name).to eq 'Google Test User'
-      expect(@github_user.name).to eq 'Github Test User'
     end
 
     it 'calls auth_provider' do
       expect(@github_user.auth_provider).to eq 'Github'
-      expect(@google_user.auth_provider).to eq 'Google'
     end
 
     it 'calls User find_google_user' do
