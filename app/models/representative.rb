@@ -8,14 +8,12 @@ class Representative < ApplicationRecord
       office = rep_info.offices.find { |o| o.official_indices.include? index }
       next unless office
 
-      Representative.create!({
-                               name:            official.name,
-                               ocdid:           office.division_id,
-                               title:           office.name,
-                               contact_address: official.address&.first&.line1,
-                               political_party: official.party,
-                               photo_url:       official.photo_url
-                             })
+      Representative.find_or_create_by!(name: official.name, title: office.name) do |rep|
+        rep.ocdid = office.division_id
+        rep.contact_address = official.address&.first&.line1
+        rep.political_party = official.party
+        rep.photo_url = official.photo_url
+      end
     end.compact
   end
 end
