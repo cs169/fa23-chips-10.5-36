@@ -31,5 +31,15 @@ describe NewsItem do
       result = described_class.find_for(@rep.id)
       expect(result).to eq @news_item
     end
+
+    it 'validates presence of issue' do
+      news_item = described_class.new(issue: nil)
+      expect(news_item).not_to be_valid
+    end
+
+    it 'allows saving with a valid issue' do
+      news_item = described_class.new(issue: 'Student Loans', representative: @rep)
+      expect(news_item).to be_valid
+    end
   end
 end
