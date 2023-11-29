@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe NewsItemsController, type: :controller do
+RSpec.describe NewsItemsController do
   let(:representative) { Representative.create(name: 'John Doe', title: 'Governor', political_party: 'Independent') }
   let(:news_item) do
     NewsItem.create(title: 'News Article', description: 'Description', link: 'http://example.com',
