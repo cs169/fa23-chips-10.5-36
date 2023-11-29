@@ -58,8 +58,13 @@ class ModelHelper
     )
   end
 
-  def self.initial_check
-    # I might need the Monkeypatch from CHIPS 8.5 here
-    0
+  def self.create_representative
+    Representative.create!({ name: 'Test Representative', created_at: '2023-11-19 22:22:00',
+updated_at: '2023-11-19 22:23:00', ocdid: 'ocd-division/country:us', title: 'Test Title' })
+  end
+
+  def self.create_news(rep_id)
+    NewsItem.create!({ title: 'Test News', description: 'Test Descrtiption', link: 'test.link.com',
+representative_id: rep_id })
   end
 end

@@ -10,7 +10,7 @@ describe Event do
       @sf = ModelHelper.init_sf[1]
       @event = described_class.create!(
         name:        'Test Event',
-        description: 'Happy New Year',
+        description: 'Test Description',
         county:      @sf,
         start_time:  '2023-12-31 00:00:00',
         end_time:    '2024-01-01 00:00:00'

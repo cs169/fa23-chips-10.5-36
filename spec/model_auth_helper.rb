@@ -2,11 +2,11 @@
 
 class ModelAuthHelper
   def self.init_github_user
-    init_user('github', '12345', 'github@test.com', 'Github')
+    init_user('github', '1', 'github@test.com', 'Github')
   end
 
   def self.init_google_user
-    init_user('google_oauth2', '100000000000000000000', 'google@test.com', 'Google')
+    init_user('google_oauth2', '1', 'google@test.com', 'Google')
   end
 
   def self.init_user(provider, uid, email, first_name)
@@ -23,7 +23,7 @@ class ModelAuthHelper
 
   def self.mock_google_auth
     {
-      'uid'      => '100000000000000000000',
+      'uid'      => '2',
       'provider' => 'google_oauth2',
       'info'     => {
         'first_name' => 'Google',
@@ -35,7 +35,7 @@ class ModelAuthHelper
 
   def self.mock_github_auth
     {
-      'uid'      => '123545',
+      'uid'      => '2',
       'provider' => 'github',
       'info'     => {
         'email' => 'github@test.com'
