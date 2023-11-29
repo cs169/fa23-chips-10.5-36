@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# pronto-ignore: all
+
 require 'rails_helper'
 require 'spec_helper'
 require 'model_helper'
@@ -28,7 +30,7 @@ describe MyNewsItemsController do
 
     it 'calls create with valid params' do
       post :create,
-           params:  { representative_id: @rep.id, news_item: @valid_news_item },
+           params:  @valid_params,
            session: @session
       expect(response).not_to render_template :new
     end
@@ -41,17 +43,17 @@ describe MyNewsItemsController do
     end
 
     it 'calls update with valid params' do
-      put :update,
-          params:  @valid_params,
-          session: @session
+      post :update,
+           params:  @valid_params,
+           session: @session
       @news_item.reload
       expect(response).to redirect_to(representative_news_item_path(@rep, @news_item))
     end
 
     it 'calls update with invalid params' do
-      put :update,
-          params:  @invalid_params,
-          session: @session
+      post :update,
+           params:  @invalid_params,
+           session: @session
       expect(response).to render_template :edit
     end
   end

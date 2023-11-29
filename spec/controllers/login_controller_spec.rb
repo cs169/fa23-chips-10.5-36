@@ -13,17 +13,11 @@ describe LoginController do
     end
 
     it 'calls google_oauth2' do
-      request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:google_oauth2]
-      get :google_oauth2
-      expect(response).to redirect_to(root_path)
-      expect(session[:current_user_id]).not_to be_nil
+      mock_omniauth(:google_oauth2)
     end
 
     it 'calls github' do
-      request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:github]
-      get :github
-      expect(response).to redirect_to(root_path)
-      expect(session[:current_user_id]).not_to be_nil
+      mock_omniauth(:github)
     end
 
     it 'calls with logged in' do
@@ -37,6 +31,15 @@ describe LoginController do
       expect(response).to redirect_to(root_path)
       expect(flash[:notice]).to eq('You have successfully logged out.')
       expect(session[:current_user_id]).to be_nil
+    end
+
+    private
+
+    def mock_omniauth(provider)
+      request.env['omniauth.auth'] = OmniAuth.config.mock_auth[provider]
+      get provider
+      expect(response).to redirect_to(root_path)
+      expect(session[:current_user_id]).not_to be_nil
     end
   end
 end
