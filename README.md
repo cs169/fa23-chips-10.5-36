@@ -11,7 +11,7 @@ political events in their area as well as aggregate, share and view news items i
 
 [![All Specs](https://github.com/cs169/fa23-chips-10.5-36/actions/workflows/specs.yml/badge.svg)](https://github.com/cs169/fa23-chips-10.5-36/actions) 
 
-[![codecov](https://codecov.io/github/cs169/fa23-chips-10.5-36/graph/badge.svg?token=qRpZnZN3QQ)](https://codecov.io/github/cs169/fa23-chips-10.5-36)
+[![codecov](https://codecov.io/github/cs169/fa23-chips-10.5-36/graph/badge.svg?token=qRpZnZN3QQ)](https://codecov.io/github/cs169/fa23-chips-10.5-36/tree/master)
 
 [![Bluejay Dashboard](https://img.shields.io/badge/Bluejay-Dashboard_36-blue.svg)](http://dashboard.bluejay.governify.io/dashboard/script/dashboardLoader.js?dashboardURL=https://reporter.bluejay.governify.io/api/v4/dashboards/tpa-CS169-2023-GH-cs169_fa23-chips-10.5-36/main)
 
