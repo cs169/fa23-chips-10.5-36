@@ -25,7 +25,8 @@ describe ApplicationHelper do
       result = described_class.nav_items
       expect(result).to eq([{ link: '/', title: 'Home' },
                             { link: '/events', title: 'Events' },
-                            { link: '/representatives', title: 'Representatives' }])
+                            { link: '/representatives', title: 'Representatives' },
+                            { link: '/campaign_finances', title: 'Campaign Finances' }])
     end
 
     xit 'calls active' do
