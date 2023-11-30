@@ -3,6 +3,8 @@
 class CampaignFinancesController < ApplicationController
   def index
     @campaign_finances = CampaignFinance.all
+    @cycles = CampaignFinance.cycles
+    @categories = CampaignFinance.categories
   end
 
   def search

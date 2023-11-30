@@ -3,15 +3,13 @@
 require 'faraday'
 class CampaignFinance < ApplicationRecord
   has_many :news_items, dependent: :delete_all
-  "
-  define these instance variables
-  "
-  def cycles
+
+  def self.cycles
     # any number between 2010 and 2020, inclusive
     (2010..2020).to_a
   end
 
-  def categories
+  def self.categories
     {
       'Candidate Loan'      => 'candidate-loan',
       'Contribution Total'  => 'contribution-total',
