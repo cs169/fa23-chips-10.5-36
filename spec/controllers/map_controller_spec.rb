@@ -9,7 +9,7 @@ describe MapController do
     before do
       @california, @sf = ModelHelper.init_sf
       @test_state, @test_county = ModelHelper.init_county('Test State', 'TS', 1, 'Test County', 1)
-      @other_test_state = ModelHelper.init_state('Also Test State', 'OTS', 2)
+      @other_test_state = ModelHelper.init_state('Other Test State', 'OTS', 2)
     end
 
     it 'calls index' do
