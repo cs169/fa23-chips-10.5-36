@@ -2,29 +2,17 @@
 
 require 'rails_helper'
 require 'spec_helper'
+require 'model_helper'
 
 describe NewsItem do
   describe 'testing state method' do
     before do
-      @rep = Representative.create!({ name: 'Test Representative',
-        ocdid: 'ocd-division/country:us', title: 'Test Title' })
-
+      @rep = ModelHelper.create_representative
       @other_rep = Representative.create!({ name: 'Other Test Representative',
         ocdid: 'ocd-division/country:us', title: 'Other Test Title' })
 
-      @news_item = described_class.create(
-        representative: @rep,
-        title:          'news story',
-        description:    'news story description',
-        link:           'google.com'
-      )
-
-      described_class.create(
-        representative: @other_rep,
-        title:          'news story',
-        description:    'news story description',
-        link:           'google.com'
-      )
+      @news_item = ModelHelper.create_news(@rep.id)
+      ModelHelper.create_news(@other_rep.id)
     end
 
     it 'calls NewsItem find_for' do

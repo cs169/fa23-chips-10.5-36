@@ -20,13 +20,18 @@ describe User do
     end
 
     it 'calls User find_google_user' do
-      result = described_class.find_google_user('100000000000000000000')
+      result = described_class.find_google_user('1')
       expect(result).to eq @google_user
     end
 
     it 'calls User find_github_user' do
-      result = described_class.find_github_user('12345')
+      result = described_class.find_github_user('1')
       expect(result).to eq @github_user
+    end
+
+    it 'calls User find_github_user w wrong id' do
+      result = described_class.find_github_user('0')
+      expect(result).to be_nil
     end
   end
 end
