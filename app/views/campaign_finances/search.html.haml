@@ -1,6 +1,39 @@
 .container-fluid
-    .row
-        .col-md-8.offset-md-2
-            .table-responsive-md.pt-5
-                %table.table.table-striped.table-hover#events
-                    %caption Table of Campaigns
+  .row
+    .col-md-8.offset-md-2
+      .table-responsive-md.pt-5
+        %table.table.table-striped.table-hover#events
+          %caption Table of Campaigns
+          %thead
+            %tr
+              %th Name
+              %th Party
+              %th State
+              %th District
+              %th Status
+              %th Total from Individuals
+              %th Total from PACs
+              %th Total Contributions
+              %th Candidate Loans
+              %th Total Disbursements
+              %th End Cash
+              %th Debts Owed
+              %th Date Coverage From
+              %th Date Coverage To
+          %tbody
+            - @campaign_finances.each do |campaign|
+              %tr
+                %td= campaign['name']
+                %td= campaign['party']
+                %td= campaign['state'].split('/').last.upcase[0...-5]
+                %td= campaign['district']
+                %td= campaign['status']
+                %td= number_to_currency(campaign['total_from_individuals'] || 0, precision: 2)
+                %td= number_to_currency(campaign['total_from_pacs'] || 0, precision: 2)
+                %td= number_to_currency(campaign['total_contributions'] || 0, precision: 2)
+                %td= number_to_currency(campaign['candidate_loans'] || 0, precision: 2)
+                %td= number_to_currency(campaign['total_disbursements'] || 0, precision: 2)
+                %td= number_to_currency(campaign['end_cash'] || 0, precision: 2)
+                %td= number_to_currency(campaign['debts_owed'] || 0, precision: 2)
+                %td= campaign['date_coverage_from']
+                %td= campaign['date_coverage_to']

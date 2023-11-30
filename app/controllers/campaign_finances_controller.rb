@@ -8,6 +8,6 @@ class CampaignFinancesController < ApplicationController
   end
 
   def search
-    @campaign_finance = CampaignFinance.find_top_twenty(params[:search])
+    @campaign_finances = CampaignFinance.find_top_twenty(params[:cycle], params[:category])
   end
 end
