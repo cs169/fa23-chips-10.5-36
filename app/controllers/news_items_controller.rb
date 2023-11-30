@@ -21,4 +21,8 @@ class NewsItemsController < ApplicationController
   def set_news_item
     @news_item = NewsItem.find(params[:id])
   end
+
+  def news_item_params
+    params.require(:news_item).permit(:title, :link, :description, :representative_id, :issue)
+  end
 end

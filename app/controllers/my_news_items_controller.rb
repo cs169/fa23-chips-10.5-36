@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class MyNewsItemsController < SessionController
+class MyNewsItemsController < ApplicationController
   before_action :set_representative
   before_action :set_representatives_list
   before_action :set_news_item, only: %i[edit update destroy]
@@ -54,6 +54,6 @@ class MyNewsItemsController < SessionController
 
   # Only allow a list of trusted parameters through.
   def news_item_params
-    params.require(:news_item).permit(:news, :title, :description, :link, :representative_id)
+    params.require(:news_item).permit(:news, :title, :description, :link, :representative_id, :issue)
   end
 end
