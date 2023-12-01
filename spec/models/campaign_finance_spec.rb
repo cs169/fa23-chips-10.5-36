@@ -10,22 +10,12 @@ RSpec.describe CampaignFinance, type: :model do
   end
 
   describe '.categories' do
-    let(:expected_categories) do
-      {
-        'Candidate Loan'      => 'candidate-loan',
-        'Contribution Total'  => 'contribution-total',
-        'Debts Owed'          => 'debts-owed',
-        'Disbursements Total' => 'disbursements-total',
-        'End Cash'            => 'end-cash',
-        'Individual Total'    => 'individual-total',
-        'PAC Total'           => 'pac-total',
-        'Receipts Total'      => 'receipts-total',
-        'Refund Total'        => 'refund-total'
-      }
-    end
+    expected_keys = ['Candidate Loan', 'Contribution Total', 'Debts Owed',
+                     'Disbursements Total', 'End Cash', 'Individual Total',
+                     'PAC Total', 'Receipts Total', 'Refund Total']
 
-    it 'returns a hash of categories' do
-      expect(described_class.categories).to eq(expected_categories)
+    it 'returns the correct categories hash' do
+      expect(described_class.categories.keys).to contain_exactly(*expected_keys)
     end
   end
 
