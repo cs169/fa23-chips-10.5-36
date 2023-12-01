@@ -97,3 +97,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+require 'webmock/rspec'
+WebMock.disable_net_connect!(allow_localhost: true)
